@@ -31,11 +31,15 @@ public class Lab01 {
 			System.out.print("Enter Width: ");
 			double width = getNum(input);
 
+			System.out.println("Enter Height: ");
+			double height = getNum(input);
+			
 			System.out.println("Area: " + (length * width));
 			System.out.println("Perimeter: " + (2 * (length + width)));
-			System.out.println("Volume: " + (2 * (length * width)) + "\n");
+			System.out.println("Volume: " + (height * length * width) + "\n");
 
 			System.out.print("Continue? (y/n):");
+			
 			answer = input.next();
 			System.out.println();
 		} while (answer.equalsIgnoreCase("Y"));
