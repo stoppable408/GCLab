@@ -64,44 +64,29 @@ public class Lab10 {
 			do {
 				answered = true;
 				answer = input.next();
-				if (answer.equalsIgnoreCase("1")) {
-					for (int i = 0; i < animated.size(); i++) {
-						Collections.sort(animated, new Movie());
-						System.out.println(animated.get(i).getTitle());
-					}
-				} else if (answer.equalsIgnoreCase("2")) {
-					Collections.sort(drama, new Movie());
-					for (int i = 0; i < drama.size(); i++) {
-						System.out.println(drama.get(i).getTitle());
-					}
-				} else if (answer.equalsIgnoreCase("3")) {
-					Collections.sort(horror, new Movie());
-					for (int i = 0; i < horror.size(); i++) {
-						System.out.println(horror.get(i).getTitle());
-					}
-				} else if (answer.equalsIgnoreCase("4")) {
-					Collections.sort(scifi, new Movie());
-					for (int i = 0; i < scifi.size(); i++) {
-						System.out.println(scifi.get(i).getTitle());
-					}
-					
-				} 
-				else if (answer.equalsIgnoreCase("5")){
-					Collections.sort(musical, new Movie());
-					for (int i = 0; i < musical.size(); i++) {
-						System.out.println(musical.get(i).getTitle());
-					}
-					
-				}
-				else if(answer.equalsIgnoreCase("6")){
-					Collections.sort(comedy, new Movie());
-					for (int i = 0; i < comedy.size(); i++) {
-						System.out.println(comedy.get(i).getTitle());
-					}
-				}
-				else {
+				switch(answer){
+				case "1":
+					sortList(animated);
+					break;
+				case "2":
+					sortList(drama);
+					break;
+				case "3":
+					sortList(horror);
+					break;
+				case "4":
+					sortList(scifi);
+					break;
+				case "5":
+					sortList(musical);
+					break;
+				case "6":
+					sortList(comedy);
+					break;
+				default:
 					answered = false;
-					System.out.print("Invalid Input. Input another number: ");
+					System.out.print("Invalid Input. Input another number: ");	
+				
 				}
 			} while (answered == false);
 			System.out.print("\n\nContinue?(y/n): ");
@@ -110,5 +95,12 @@ public class Lab10 {
 
 		input.close();
 		System.out.println("\nThank you for using this program!");
+	}
+
+	public static void sortList(ArrayList<Movie> movieList) {
+		for (int i = 0; i < movieList.size(); i++) {
+			Collections.sort(movieList, new Movie());
+			System.out.println(movieList.get(i).getTitle());
+		}
 	}
 }
